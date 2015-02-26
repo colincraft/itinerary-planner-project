@@ -1,0 +1,3 @@
+- buffalo, ny
+- chicago, Il
+- san francisco, ca
