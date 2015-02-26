@@ -1,3 +1,7 @@
 - buffalo, ny
 - chicago, Il
 - san francisco, ca
+- Lima, Peru
+- Glasgow, Scotland
+- Galapagos Archipellago, Equador
+- Homer, NY
