@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
-  resources :movies, has_many: :reviews
+  resources :itineraries, has_many: :reviews
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
