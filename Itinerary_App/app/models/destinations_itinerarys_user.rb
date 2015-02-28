@@ -6,5 +6,5 @@ class DestinationsItinerarysUser < ActiveRecord::Base
   validates :user_id, :uniqueness => true
 
 
-  # camilos test commit
+  # camilos test commit 2
 end
