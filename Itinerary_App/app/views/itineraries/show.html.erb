@@ -1,2 +1,9 @@
-<h1>Itineraries#show</h1>
-<p>Find me in app/views/itineraries/show.html.erb</p>
+<h1><%= @itinerary.name_i %></h1>
+<h2><%= @itinerary.origin %> <small>to: </small><%= @itinerary.city %></h2>
+<h4><%= @itinerary.departure_date %></h4>
+<h4><%= @itinerary.return_date %></h4>
+<p>
+<% @destinations.each do |destination| %>
+<%= destination.name_d %>
+</p>
+<% end %>
