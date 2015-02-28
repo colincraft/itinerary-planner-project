@@ -3,6 +3,8 @@
 <% @itinerary.each do |itinerary| %>
 <p>
 <%= link_to itinerary.name_i, itinerary_path(itinerary) %>
+<%= link_to "Edit", edit_itinerary_path(itinerary) %>
+
 </p>
 
 <% end %>
