@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+  get 'reviews/add'
+
+  get 'reviews/delete'
+
+  get 'reviews/edit'
+
+  get 'reviews/show'
+
+  get 'destinations/add'
+
+  get 'destinations/edit'
+
+  get 'destinations/delete'
+
+  get 'destinations/show'
+
+  get 'itineraries/index'
+
+  get 'itineraries/edit'
+
+  get 'itineraries/show'
+
+  get 'itineraries/add'
+
+  get 'itineraries/delete'
+
+  get 'users/login'
+
+  get 'users/signup'
+
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
   resources :movies, has_many: :reviews
