@@ -1,2 +1,35 @@
-<h1>Itineraries#show</h1>
-<p>Find me in app/views/itineraries/show.html.erb</p>
+<h1><%= @itinerary.name_i %></h1>
+<h2><%= @itinerary.origin %> <small>to: </small><%= @itinerary.city %></h2>
+<h4><%= @itinerary.departure_date %></h4>
+<h4><%= @itinerary.return_date %></h4>
+<p>
+<% @destinations.each do |destination| %>
+<%= link_to destination.name_d, destination_path(destination) %>
+<%= destination.location%>
+<%= destination.date%>
+</p>
+<% end %>
+
+
+<h4>Review this Itinerary</h4>
+
+<!-- Form for new review -->
+<%= form_for [@itinerary, Review.new] do |f| %>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+<!-- end form -->
+
+<h5>Reviews</h5>
+<!-- show all reviews -->
+<% if @reviews != nil %>
+<% @reviews.each do |review| %>
+<li><%= review.content %> - <%= time_ago_in_words review.created_at %></li>
+<% end %>
+<% else %>
+<p>No reviews</p>
+<% end %>
+<!-- end show reviews -->

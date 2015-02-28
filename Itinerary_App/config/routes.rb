@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :destinations, has_many: :reviews
   resources :itineraries, has_many: :reviews
 
+  post '/itineraries/:itinerary_id/reviews/create' => 'reviews#add', as: :itinerary_reviews
+
 
 
 #                Prefix Verb   URI Pattern                      Controller#Action
