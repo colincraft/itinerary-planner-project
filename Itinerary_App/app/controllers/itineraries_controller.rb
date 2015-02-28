@@ -4,6 +4,11 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
+    # @itinerary = 
+  end
+
+  def update
+
   end
 
   def show
