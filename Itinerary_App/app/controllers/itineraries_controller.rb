@@ -6,6 +6,11 @@ before_action :find_itinerary, only: [:show]
   end
 
   def edit
+    # @itinerary = 
+  end
+
+  def update
+
   end
 
   def show
