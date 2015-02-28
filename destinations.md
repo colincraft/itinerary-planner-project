@@ -5,3 +5,4 @@
 - Glasgow, Scotland
 - Galapagos Archipellago, Equador
 - Homer, NY
+- Bogota, Colombia

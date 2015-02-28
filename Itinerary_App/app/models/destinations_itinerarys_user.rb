@@ -4,4 +4,7 @@ class DestinationsItinerarysUser < ActiveRecord::Base
   belongs_to :user
 
   validates :user_id, :uniqueness => true
+
+
+  # camilos test commit
 end
