@@ -6,16 +6,16 @@ colin = User.create(:first_name => "Colin", :last_name => "Craft", :email => "co
 camilo = User.create(:first_name => "Camilo", :last_name => "Ordonez", :email => "camilo@email.com")
 arebeth = User.create(:first_name => "Arebeth", :last_name => "Pease", :email => "arebeth@email.com")
 
-europe = Itinerary.create(origin: "New York", destination: "Europe", departure_date:"1/5/2014", return_date:"2/5/2014")
-nyc = Itinerary.create(origin: "SFO", destination: "NYC", departure_date:"1/5/2014", return_date:"2/5/2014")
+europe = Itinerary.create(origin: "New York", city: "Europe", departure_date:"1/5/2014", return_date:"2/5/2014")
+nyc = Itinerary.create(origin: "SFO", city: "NYC", departure_date:"1/5/2014", return_date:"2/5/2014")
 
-paris = Destination.create(location: "123, Paris Way", name: "Paris", date: "12/13/14")
-rome = Destination.create(location: "123 Rome Way", name: "Rome", date: "12/14/14")
-met = Destination.create(location: "NYC", name: "The Met", date:"1/15/15")
-whitney = Destination.create(location: "NYC", name:"THe Whitney", date:"1/17/15")
-guggenheim = Destination.create(location:"NYC", name:"Guggenheim", date:"1/18/15")
-moma = Destination.create(location:"NYC", name:"Moma", date:"1/19/15")
-bronxzoo = Destination.create(location:"NYC", name:"Bronx Zoo", date:"1/22/15")
+paris = Destination.create(location: "123, Paris Way", name_d: "Paris", date: "12/13/14")
+rome = Destination.create(location: "123 Rome Way", name_d: "Rome", date: "12/14/14")
+met = Destination.create(location: "NYC", name_d: "The Met", date:"1/15/15")
+whitney = Destination.create(location: "NYC", name_d:"THe Whitney", date:"1/17/15")
+guggenheim = Destination.create(location:"NYC", name_d:"Guggenheim", date:"1/18/15")
+moma = Destination.create(location:"NYC", name_d:"Moma", date:"1/19/15")
+bronxzoo = Destination.create(location:"NYC", name_d:"Bronx Zoo", date:"1/22/15")
 
 europe.destinations << paris
 europe.destinations << rome

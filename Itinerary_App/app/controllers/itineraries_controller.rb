@@ -1,5 +1,6 @@
 class ItinerariesController < ApplicationController
   def index
+    @itinerary = Itinerary.all
   end
 
   def edit
