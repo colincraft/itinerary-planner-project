@@ -6,8 +6,8 @@ colin = User.create(:first_name => "Colin", :last_name => "Craft", :email => "co
 camilo = User.create(:first_name => "Camilo", :last_name => "Ordonez", :email => "camilo@email.com")
 arebeth = User.create(:first_name => "Arebeth", :last_name => "Pease", :email => "arebeth@email.com")
 
-europe = Itinerary.create(origin: "New York", city: "Europe", departure_date:"1/5/2014", return_date:"2/5/2014")
-nyc = Itinerary.create(origin: "SFO", city: "NYC", departure_date:"1/5/2014", return_date:"2/5/2014")
+europe = Itinerary.create(origin: "New York", city: "Europe", departure_date:"1/5/2014", return_date:"2/5/2014", name_i: "My trip to Europe!")
+nyc = Itinerary.create(origin: "SFO", city: "NYC", departure_date:"1/5/2014", return_date:"2/5/2014", name_i: "My trip to NYC!")
 
 paris = Destination.create(location: "123, Paris Way", name_d: "Paris", date: "12/13/14")
 rome = Destination.create(location: "123 Rome Way", name_d: "Rome", date: "12/14/14")

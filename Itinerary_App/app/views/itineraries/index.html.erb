@@ -2,6 +2,7 @@
 
 <% @itinerary.each do |itinerary| %>
 <p>
-<%= itinerary.origin %><%= itinerary.city %><%= itinerary.name_i %>
+<%= link_to itinerary.name_i, itinerary_path(itinerary) %>
 </p>
+
 <% end %>
