@@ -6,7 +6,6 @@ before_action :find_itinerary, only: [:show]
   end
 
   def edit
-    # @itinerary = 
   end
 
   def update
@@ -15,7 +14,7 @@ before_action :find_itinerary, only: [:show]
 
   def show
     @destinations = @itinerary.destinations
-
+    @reviews = @itinerary.reviews
   end
 
   def add
