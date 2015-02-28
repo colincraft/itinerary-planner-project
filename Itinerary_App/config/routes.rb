@@ -1,37 +1,55 @@
 Rails.application.routes.draw do
-  get 'reviews/add'
-
-  get 'reviews/delete'
-
-  get 'reviews/edit'
-
-  get 'reviews/show'
-
-  get 'destinations/add'
-
-  get 'destinations/edit'
-
-  get 'destinations/delete'
-
-  get 'destinations/show'
-
-  get 'itineraries/index'
-
-  get 'itineraries/edit'
-
-  get 'itineraries/show'
-
-  get 'itineraries/add'
-
-  get 'itineraries/delete'
-
   get 'users/login'
 
   get 'users/signup'
 
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
-  resources :movies, has_many: :reviews
+  resources :itineraries, has_many: :reviews
+
+
+
+#                Prefix Verb   URI Pattern                      Controller#Action
+#         reviews_add GET    /reviews/add(.:format)           reviews#add
+#      reviews_delete GET    /reviews/delete(.:format)        reviews#delete
+#        reviews_edit GET    /reviews/edit(.:format)          reviews#edit
+#        reviews_show GET    /reviews/show(.:format)          reviews#show
+#    destinations_add GET    /destinations/add(.:format)      destinations#add
+#   destinations_edit GET    /destinations/edit(.:format)     destinations#edit
+# destinations_delete GET    /destinations/delete(.:format)   destinations#delete
+#   destinations_show GET    /destinations/show(.:format)     destinations#show
+#   itineraries_index GET    /itineraries/index(.:format)     itineraries#index
+#    itineraries_edit GET    /itineraries/edit(.:format)      itineraries#edit
+#    itineraries_show GET    /itineraries/show(.:format)      itineraries#show
+#     itineraries_add GET    /itineraries/add(.:format)       itineraries#add
+#  itineraries_delete GET    /itineraries/delete(.:format)    itineraries#delete
+#         users_login GET    /users/login(.:format)           users#login
+#        users_signup GET    /users/signup(.:format)          users#signup
+#               users GET    /users(.:format)                 users#index {:has_many=>:reviews}
+#                     POST   /users(.:format)                 users#create {:has_many=>:reviews}
+#            new_user GET    /users/new(.:format)             users#new {:has_many=>:reviews}
+#           edit_user GET    /users/:id/edit(.:format)        users#edit {:has_many=>:reviews}
+#                user GET    /users/:id(.:format)             users#show {:has_many=>:reviews}
+#                     PATCH  /users/:id(.:format)             users#update {:has_many=>:reviews}
+#                     PUT    /users/:id(.:format)             users#update {:has_many=>:reviews}
+#                     DELETE /users/:id(.:format)             users#destroy {:has_many=>:reviews}
+#        destinations GET    /destinations(.:format)          destinations#index {:has_many=>:reviews}
+#                     POST   /destinations(.:format)          destinations#create {:has_many=>:reviews}
+#     new_destination GET    /destinations/new(.:format)      destinations#new {:has_many=>:reviews}
+#    edit_destination GET    /destinations/:id/edit(.:format) destinations#edit {:has_many=>:reviews}
+#         destination GET    /destinations/:id(.:format)      destinations#show {:has_many=>:reviews}
+#                     PATCH  /destinations/:id(.:format)      destinations#update {:has_many=>:reviews}
+#                     PUT    /destinations/:id(.:format)      destinations#update {:has_many=>:reviews}
+#                     DELETE /destinations/:id(.:format)      destinations#destroy {:has_many=>:reviews}
+#         itineraries GET    /itineraries(.:format)           itineraries#index {:has_many=>:reviews}
+#                     POST   /itineraries(.:format)           itineraries#create {:has_many=>:reviews}
+#       new_itinerary GET    /itineraries/new(.:format)       itineraries#new {:has_many=>:reviews}
+#      edit_itinerary GET    /itineraries/:id/edit(.:format)  itineraries#edit {:has_many=>:reviews}
+#           itinerary GET    /itineraries/:id(.:format)       itineraries#show {:has_many=>:reviews}
+#                     PATCH  /itineraries/:id(.:format)       itineraries#update {:has_many=>:reviews}
+#                     PUT    /itineraries/:id(.:format)       itineraries#update {:has_many=>:reviews}
+#                     DELETE /itineraries/:id(.:format)       itineraries#destroy {:has_many=>:reviews}
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
