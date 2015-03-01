@@ -1,4 +1,4 @@
-<h1>Show My Itineraries</h1>
+<h1>Show <%= @user.first_name %> Itineraries</h1>
 
 <% @itineraries.each do |itinerary| %>
 <p>
@@ -12,3 +12,5 @@
 <br>
 
 <%= link_to "Add new Itinerary", new_itinerary_path %>
+
+<%= link_to "Log Out", users_logout_path %>

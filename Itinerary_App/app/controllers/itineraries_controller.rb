@@ -2,7 +2,12 @@ class ItinerariesController < ApplicationController
 before_action :find_item, only: [:show, :edit, :update]
 
   def index
-    @itineraries = Itinerary.all
+    unless session[:user_id]
+      redirect_to users_login_path, alert: "Please log in"
+    else
+      @user = User.find session[:user_id]
+      @itineraries = Itinerary.all
+    end
   end
 
   def edit

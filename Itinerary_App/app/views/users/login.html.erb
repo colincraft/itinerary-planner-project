@@ -8,8 +8,6 @@ else
   render users_login_path
 end -->
 
-<%= @dog %>
-
 <%= form_for @user, url: users_login_path do |user| %>
   <p>
     <%= user.label :email %>

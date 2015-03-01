@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post 'users/login', to: "users#attempt_login"
 
+  get 'users/logout' 
+
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
   resources :itineraries, has_many: :reviews
