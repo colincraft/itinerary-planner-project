@@ -1,2 +1,28 @@
-<h1>Destinations#show</h1>
-<p>Find me in app/views/destinations/show.html.erb</p>
+<h2><%= @destination.name_d %></h2>
+
+
+
+<h4>Review this Destination</h4>
+
+<!-- Form for new review -->
+<%= form_for [@destination, Review.new] do |f| %>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+<!-- end form -->
+
+<h5>Reviews</h5>
+<!-- show all reviews -->
+<% if @reviews != nil %>
+<% @reviews.each do |review| %>
+<li><%= review.content %> - 
+
+<%= time_ago_in_words review.created_at %></li>
+<% end %>
+<% else %>
+<p>No reviews</p>
+<% end %>
+

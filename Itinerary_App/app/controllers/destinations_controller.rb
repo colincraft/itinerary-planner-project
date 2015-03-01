@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+
   before_action :find_destination, only: [:show, :edit, :update]
 
   # def add
@@ -12,6 +13,10 @@ class DestinationsController < ApplicationController
   def new
     binding.pry
    @destination = Destination.new
+  end
+  
+  def add
+
   end
 
 
@@ -27,8 +32,9 @@ class DestinationsController < ApplicationController
   end
 
   def show
-   
+    @reviews = @destination.reviews
   end
+
 
 
   private
@@ -42,6 +48,7 @@ class DestinationsController < ApplicationController
     @destination = Destination.find(params[:id])
     @itinerary = @destination.itinerary 
   end
+
 
 
 end

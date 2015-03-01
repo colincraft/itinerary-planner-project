@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-  get 'itineraries/new'
 
-  get 'destinations/new'
+ 
+  root "users#signup"
 
   get 'users/login'
 
-  get 'users/signup'
+  get 'users/signup', to: "users#signup"
+
+  post 'users/create', to: "users#create"
 
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
   resources :itineraries, has_many: :reviews
 
   post '/itineraries/:itinerary_id/reviews/create' => 'reviews#add', as: :itinerary_reviews
+  post '/destinations/:destination_id/reviews/create' => 'reviews#add', as: :destination_reviews
 
 
 
