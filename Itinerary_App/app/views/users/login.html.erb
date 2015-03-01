@@ -1,2 +1,23 @@
-<h1>Users#login</h1>
-<p>Find me in app/views/users/login.html.erb</p>
+<h1>LOG IN</h1>
+
+<!-- if @user.save
+  flash[notice: "Welcome back."]
+  redirect_to itineraries_index_path
+else
+  flash[notice: "Please try again."]
+  render users_login_path
+end -->
+
+<%= @dog %>
+
+<%= form_for @user, url: users_login_path do |user| %>
+  <p>
+    <%= user.label :email %>
+    <%= user.text_field :email %>
+  </p>
+  <p>
+    <%= user.label :password %>
+    <%= user.password_field :password %>
+  </p>
+  <%= user.submit %>
+<% end %>
