@@ -56,7 +56,7 @@
 <h3>Add new Destination</h3>
 
 
-   <%= form_for [ Destination.new] do |f| %>
+   <%= form_for [@itinerary, Destination.new] do |f| %>
 
       <%= f.label :location%>
       <%= f.text_field :location%></li>
