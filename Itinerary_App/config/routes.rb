@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'users/signup', to: "users#signup"
 
+  post 'users/create', to: "users#create"
+
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
   resources :itineraries, has_many: :reviews

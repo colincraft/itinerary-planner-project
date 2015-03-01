@@ -1,17 +1,23 @@
 <h1>SIGN UP</h1>
 
-<%= form_tag("users#signup", method: "post") do %>
-  <%= label_tag(:first_name, "First Name:") %>
-  <%= text_field_tag(:first_name) %>
-  <br>
-  <%= label_tag(:last_name, "Last Name:") %>
-  <%= text_field_tag(:last_name) %>
-  <br>
-  <%= label_tag(:email, "Email:") %>
-  <%= text_field_tag(:email) %>
-  <br>
-  <%= label_tag(:password, "Password:") %>
-  <%= text_field_tag(:password) %>
-  <br><br>
-  <%= submit_tag("Sign Up") %>
+
+
+<%= form_for @user, url: "/users/create" do |user| %>
+  <p>
+    <%= user.label :first_name %>
+    <%= user.text_field :first_name %>
+  </p>
+  <p>
+    <%= user.label :last_name %>
+    <%= user.text_field :last_name %>
+  </p>
+  <p>
+    <%= user.label :email %>
+    <%= user.text_field :email %>
+  </p>
+  <p>
+    <%= user.label :password %>
+    <%= user.text_field :password %>
+  </p>
+  <%= user.submit %>
 <% end %>
