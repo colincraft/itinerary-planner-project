@@ -22,11 +22,13 @@
 
 
 <!-- Update Destination form -->
+@itinerary
 
+<% binding.pry %>
 <% @destinations.each do |destination| %>
 
-   <%= form_for destination do |f| %>
-
+   <%= form_for [ destination] do |f| %>
+   
       <li>Stored Location: <%=f.text_field :location , disabled: :disabled %> 
 
       Edit:<%= f.label :location%>
