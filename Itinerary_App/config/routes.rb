@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root "users#signup"
+
   get 'users/login'
 
-  get 'users/signup'
+  get 'users/signup', to: "users#signup"
 
   resources :users, has_many: :reviews
   resources :destinations, has_many: :reviews
