@@ -6,16 +6,21 @@ class DestinationsController < ApplicationController
   # end
 
   def create
-    binding.pry
+    destination = Destination.create destination_params
+    if destination.save
+
+      redirect_to '/itineraries'
+    else
+      render :new
+    end
   end
 
 
   def new
-    binding.pry
    @destination = Destination.new
   end
   
-  def add
+  def addrails
 
   end
 
