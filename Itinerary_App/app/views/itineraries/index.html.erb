@@ -1,2 +1,10 @@
-<h1>Itineraries#index</h1>
-<p>Find me in app/views/itineraries/index.html.erb</p>
+<h1>Show My Itinerary</h1>
+
+<% @itineraries.each do |itinerary| %>
+<p>
+<%= link_to itinerary.name_i, itinerary_path(itinerary) %>
+<%= link_to "Edit", edit_itinerary_path(itinerary) %>
+
+</p>
+
+<% end %>
