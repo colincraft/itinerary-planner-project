@@ -1,2 +1,17 @@
-<h1>Users#signup</h1>
-<p>Find me in app/views/users/signup.html.erb</p>
+<h1>SIGN UP</h1>
+
+<%= form_tag("users#signup", method: "post") do %>
+  <%= label_tag(:first_name, "First Name:") %>
+  <%= text_field_tag(:first_name) %>
+  <br>
+  <%= label_tag(:last_name, "Last Name:") %>
+  <%= text_field_tag(:last_name) %>
+  <br>
+  <%= label_tag(:email, "Email:") %>
+  <%= text_field_tag(:email) %>
+  <br>
+  <%= label_tag(:password, "Password:") %>
+  <%= text_field_tag(:password) %>
+  <br><br>
+  <%= submit_tag("Sign Up") %>
+<% end %>
