@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-before_action :find_itinerary, only: [:show, :edit, :update]
+before_action :find_item, only: [:show, :edit, :update]
 
   def index
     @itineraries = Itinerary.all
@@ -8,9 +8,24 @@ before_action :find_itinerary, only: [:show, :edit, :update]
   def edit
   end
 
+  def new
+    @itinerary = Itinerary.new
+    @destination = Destination.new
+  end
+
+  def create
+    itinerary = Itinerary.create itinerary_params
+    if itinerary.save
+      redirect_to '/itineraries'
+    else
+      render :new
+    end
+
+  end
+
   def update
     @itinerary.update_attributes itinerary_params
-    redirect_to '/itineraries'
+    redirect_to @itinerary
   end
 
   def show
@@ -18,8 +33,8 @@ before_action :find_itinerary, only: [:show, :edit, :update]
     @reviews = @itinerary.reviews
   end
 
-  def add
-  end
+  # def add  
+  # end
 
   def delete
   end
@@ -31,8 +46,9 @@ before_action :find_itinerary, only: [:show, :edit, :update]
     params.require(:itinerary).permit(:origin, :city, :name_i, :departure_date, :return_date, :creator_id)  
   end
   
-  def find_itinerary
+  def find_item
     @itinerary = Itinerary.find(params[:id])
+    @destinations = @itinerary.destinations.order('date ASC')
   end
 
 end

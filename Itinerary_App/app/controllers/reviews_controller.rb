@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
       # redirect_to "/movies/#{find_commentable.id}"
       redirect_to :back
     else
-      flash[:notice] = "Something went wrong. Please try witha  valid comment, bitch."
+      flash[:notice] = "Something went wrong. Please try with a valid comment, bitch."
     end
   end
 

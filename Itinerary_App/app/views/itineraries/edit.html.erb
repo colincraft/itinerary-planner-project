@@ -1,5 +1,5 @@
 <h1>Itineraries#edit</h1>
-
+<!-- Update Itinerary form -->
 <%= form_for @itinerary do |f| %>
 
 <%= f.label :name_i %>
@@ -19,3 +19,53 @@
 
 <%= f.submit "submit" %>
 <% end %>
+
+
+<!-- Update Destination form -->
+
+<% @destinations.each do |destination| %>
+
+   <%= form_for destination do |f| %>
+
+      <li>Stored Location: <%=f.text_field :location , disabled: :disabled %> 
+
+      Edit:<%= f.label :location%>
+      <%= f.text_field :location%></li>
+
+      <li>Stored name: <%=f.text_field :name_d , disabled: :disabled %>
+
+      Edit:   <%= f.label "Modify" %>
+      <%= f.text_field :name_d%></li>
+
+      <li>Stored date: <%=f.text_field :date , disabled: :disabled %>
+
+      Edit: <%= f.label :date %>
+      <%= f.text_field :date%></li>
+
+      <%= f.submit "submit" %>
+
+   <% end %>
+<% end %>
+
+<!-- Edit Destination - Another option -->
+  
+
+
+<!-- Add new Destination form -->
+
+<h3>Add new Destination</h3>
+<%= form_for "/destinations" do |f| %>
+
+   <%= f.label :location%>
+   <%= f.text_field :location%></li>
+
+   <%= f.label :name_d %>
+   <%= f.text_field :name_d%></li>
+
+   <%= f.label :date %>
+   <%= f.text_field :date%></li>
+
+   <%= f.submit "submit" %>
+
+<% end %>
+

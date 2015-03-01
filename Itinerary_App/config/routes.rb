@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'itineraries/new'
+
+  get 'destinations/new'
+
   get 'users/login'
 
   get 'users/signup'
