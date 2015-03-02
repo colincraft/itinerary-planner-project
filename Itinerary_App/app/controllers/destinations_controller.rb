@@ -1,21 +1,28 @@
 class DestinationsController < ApplicationController
 
   before_action :find_destination, only: [:show, :edit, :update]
-
+  before_action :find_destinationable, only: [:create]
   # def add
   # end
 
   def create
-    binding.pry
+    c = Destination.new destination_params
+    find_destinationable.destinations << c
+    if c.save
+      flash[:notice] = "Successfully created a destination."
+      redirect_to :back
+    else
+      flash[:notice] = "Something went wrong. Please try with a valid destination, bitch."
+      redirect_to '/itineraries'
+    end
   end
 
 
   def new
-    binding.pry
    @destination = Destination.new
   end
   
-  def add
+  def addrails
 
   end
 
@@ -49,6 +56,13 @@ class DestinationsController < ApplicationController
     @itinerary = @destination.itinerary 
   end
 
-
+  def find_destinationable
+        params.each do |name, value|
+          if name =~ /(.+)_id$/
+            return $1.classify.constantize.find(value)
+          end
+      end
+      nil
+  end
 
 end

@@ -53,7 +53,8 @@ before_action :find_item, only: [:show, :edit, :update]
   
   def find_item
     @itinerary = Itinerary.find(params[:id])
-    @destinations = @itinerary.destinations.order('date ASC')
+    @destinations = @itinerary.destinations
+    # @destinations = @itinerary.destinations.order('date ASC')
   end
 
 end
