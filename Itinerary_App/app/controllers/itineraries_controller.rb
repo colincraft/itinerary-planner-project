@@ -20,12 +20,16 @@ before_action :find_item, only: [:show, :edit, :update]
 
   def create
     itinerary = Itinerary.create itinerary_params
-    if itinerary.save
-      redirect_to '/itineraries'
+    if itinerary_params["departure_date"].to_date < itinerary_params["return_date"].to_date
+      if itinerary.save
+          redirect_to '/itineraries'
+      else
+          render :new
+      end
     else
-      render :new
-    end
-
+      flash[:notice] = "Invalid dates, bitch."
+          redirect_to :back
+    end    
   end
 
   def update
@@ -53,8 +57,8 @@ before_action :find_item, only: [:show, :edit, :update]
   
   def find_item
     @itinerary = Itinerary.find(params[:id])
-    @destinations = @itinerary.destinations
-    # @destinations = @itinerary.destinations.order('date ASC')
+    # @destinations = @itinerary.destinations
+    @destinations = @itinerary.destinations.order('date ASC')
   end
 
 end

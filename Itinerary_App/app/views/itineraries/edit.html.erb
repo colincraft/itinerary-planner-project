@@ -1,52 +1,64 @@
-<h1>Itineraries#edit</h1>
+<h1>Modify this Itinerary</h1>
 <!-- Update Itinerary form -->
 <%= form_for @itinerary do |f| %>
 
-<%= f.label :name_i %>
-<%= f.text_field :name_i%>
+<li>
+   <%= f.label :name_i %>
+   <%= f.text_field :name_i%>
 
-<%= f.label :origin %>
-<%= f.text_field :origin%>
+   <%= f.label :origin %>
+   <%= f.text_field :origin%>
 
-<%= f.label :city %>
-<%= f.text_field :city%>
+   <%= f.label :city %>
+   <%= f.text_field :city%>
+</li>
 
-<%= f.label :departure_date %>
-<%= f.text_field :departure_date%>
+<li>
+   <%= f.label :departure_date %>
+   <%= f.text_field :departure_date%>
 
-<%= f.label :return_date %>
-<%= f.text_field :return_date%>
+   <%= f.label :return_date %>
+   <%= f.text_field :return_date%>
 
-<%= f.submit "submit" %>
+   <%= f.submit "Save Itinerary" %>
+</li>
+<br>
+<hr>
+
 <% end %>
 
 
 <!-- Update Destination form -->
 
+<h3>Modify this Destinations</h3>
 <% @destinations.each do |destination| %>
 
    <%= form_for [ destination] do |f| %>
    
-      <li>Stored Location: <%=f.text_field :location , disabled: :disabled %> 
+      <li>
+         Stored Location: <%=f.text_field :location , disabled: :disabled %> 
+         Stored name: <%=f.text_field :name_d , disabled: :disabled %>
+         Stored date: <%=f.text_field :date , disabled: :disabled %>
+         
+            <%= link_to "Delete", it_destinations_delete_path(@destinations,destination), method: :delete, data: {confirm: "Are you sure?"} %>
+      </li>
 
-      Edit:<%= f.label :location%>
+      Edit: <%= f.label :location%>
       <%= f.text_field :location%></li>
-
-      <li>Stored name: <%=f.text_field :name_d , disabled: :disabled %>
 
       Edit:   <%= f.label "Modify" %>
       <%= f.text_field :name_d%></li>
 
-      <li>Stored date: <%=f.text_field :date , disabled: :disabled %>
-
       Edit: <%= f.label :date %>
       <%= f.text_field :date%></li>
-
-      <%= f.submit "submit" %>
+      
+      <%= f.submit "add" %>
+      <br>
+      <br>
 
    <% end %>
 <% end %>
-
+<hr>
 <!-- Edit Destination - Another option -->
   
 
@@ -67,8 +79,12 @@
       <%= f.label :date %>
       <%= f.text_field :date%></li>
 
-      <%= f.submit "submit" %>
+      <%= f.submit "Add destination" %>
 
    <% end %>
+
+   <br>
+
+   <%= button_to "Go back", itineraries_path , :class => "button", :method => :get %>
 
 
