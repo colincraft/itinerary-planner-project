@@ -21,6 +21,7 @@
    <%= f.text_field :return_date%>
 
    <%= f.submit "Save Itinerary" %>
+   <%= link_to "Delete", itinerary_path(@itinerary), method: :delete, data: {confirm: "Are you sure?"} %>
 </li>
 <br>
 <hr>

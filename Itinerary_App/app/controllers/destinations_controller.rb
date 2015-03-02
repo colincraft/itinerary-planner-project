@@ -41,8 +41,7 @@ class DestinationsController < ApplicationController
 
   def delete
     @itinerary.destinations.delete(@destination)
-    destination = Destination.find(@destination)
-    destination.delete
+    Destination.find(@destination).delete
     redirect_to :back
   end
 

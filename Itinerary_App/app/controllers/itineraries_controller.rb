@@ -45,7 +45,10 @@ before_action :find_item, only: [:show, :edit, :update]
   # def add  
   # end
 
-  def delete
+  def destroy
+    
+    Itinerary.find(params[:id]).delete
+    redirect_to '/itineraries'
   end
 
 
