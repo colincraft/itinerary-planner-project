@@ -6,7 +6,7 @@ before_action :find_item, only: [:show, :edit, :update]
       redirect_to users_login_path, alert: "Please log in"
     else
       @user = User.find session[:user_id]
-      @itineraries = Itinerary.all
+      @itineraries = @user.itineraries 
     end
   end
 
@@ -19,7 +19,9 @@ before_action :find_item, only: [:show, :edit, :update]
   end
 
   def create
+    user = User.find session[:user_id]
     itinerary = Itinerary.create itinerary_params
+    user.itineraries << itinerary
     if itinerary.save
       redirect_to '/itineraries'
     else
