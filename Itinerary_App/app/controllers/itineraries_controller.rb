@@ -22,12 +22,17 @@ before_action :find_item, only: [:show, :edit, :update]
     user = User.find session[:user_id]
     itinerary = Itinerary.create itinerary_params
     user.itineraries << itinerary
-    if itinerary.save
-      redirect_to '/itineraries'
-    else
-      render :new
-    end
 
+    if itinerary_params["departure_date"].to_date < itinerary_params["return_date"].to_date
+      if itinerary.save
+          redirect_to '/itineraries'
+      else
+          render :new
+      end
+    else
+      flash[:notice] = "Invalid dates, bitch."
+          redirect_to :back
+    end    
   end
 
   def update
@@ -43,7 +48,10 @@ before_action :find_item, only: [:show, :edit, :update]
   # def add  
   # end
 
-  def delete
+  def destroy
+    
+    Itinerary.find(params[:id]).delete
+    redirect_to '/itineraries'
   end
 
 
@@ -55,8 +63,8 @@ before_action :find_item, only: [:show, :edit, :update]
   
   def find_item
     @itinerary = Itinerary.find(params[:id])
-    @destinations = @itinerary.destinations
-    # @destinations = @itinerary.destinations.order('date ASC')
+    # @destinations = @itinerary.destinations
+    @destinations = @itinerary.destinations.order('date ASC')
   end
 
 end

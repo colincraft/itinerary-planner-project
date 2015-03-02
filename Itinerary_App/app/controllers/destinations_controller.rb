@@ -1,20 +1,24 @@
 class DestinationsController < ApplicationController
 
-  before_action :find_destination, only: [:show, :edit, :update]
+  before_action :find_destination, only: [:show, :edit, :update, :delete]
   before_action :find_destinationable, only: [:create]
   # def add
   # end
 
   def create
     c = Destination.new destination_params
-    find_destinationable.destinations << c
-    if c.save
-      flash[:notice] = "Successfully created a destination."
-      redirect_to :back
-    else
-      flash[:notice] = "Something went wrong. Please try with a valid destination, bitch."
-      redirect_to '/itineraries'
-    end
+
+        
+      # binding.pry requires itinerary id , we dont have it yet
+
+        find_destinationable.destinations << c
+        if c.save
+          flash[:notice] = "Successfully created a destination."
+          redirect_to :back
+        else
+          flash[:notice] = "Something went wrong. Please try with a valid destination, bitch."
+          redirect_to '/itineraries'
+        end
   end
 
 
@@ -36,10 +40,13 @@ class DestinationsController < ApplicationController
   end
 
   def delete
+    @itinerary.destinations.delete(@destination)
+    Destination.find(@destination).delete
+    redirect_to :back
   end
 
   def show
-    @reviews = @destination.reviews
+
   end
 
 

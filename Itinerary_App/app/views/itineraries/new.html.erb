@@ -1,4 +1,4 @@
-<h1>Itineraries#new</h1>
+<h1>Add new Itineraries</h1>
 <!-- Error messages -->
 <% if @itinerary.errors.any? %>
    <% @itinerary.errors.full_messages.each do |error|%>
@@ -11,23 +11,25 @@
 <!-- Add new Itinerary form -->
 <%= form_for @itinerary do |f| %>
 
-<%= f.label :name_i %>
-<%= f.text_field :name_i%>
+<li><%= f.label :name_i %> 
+<%= f.text_field :name_i%></li>
 
-<%= f.label :origin %>
-<%= f.text_field :origin%>
 
-<%= f.label :city %>
-<%= f.text_field :city%>
+<li><%= f.label :origin %>
+<%= f.text_field :origin%></li>
 
-<%= f.label :departure_date %>
-<%= f.text_field :departure_date%>
+<li><%= f.label :city %>
+<%= f.text_field :city%></li>
 
-<%= f.label :return_date %>
-<%= f.text_field :return_date%>
+<li><%= f.label :departure_date %> (yyyy-mm-dd)
+<%= f.text_field :departure_date%></li>
 
-<%= f.submit "submit" %>
+<li><%= f.label :return_date %> (yyyy-mm-dd)
+<%= f.text_field :return_date%></li>
+
+<%= f.submit "Save" %>
 <% end %>
-
-
+<br>
+<hr>
+<%= button_to "Go back", itineraries_path , :class => "button", :method => :get %>
 

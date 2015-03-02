@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/itineraries/:itinerary_id/reviews/create' => 'reviews#add', as: :itinerary_reviews
   post '/destinations/:destination_id/reviews/create' => 'reviews#add', as: :destination_reviews
   post '/itineraries/:itinerary_id/destinations/create' => 'destinations#create', as: :itinerary_destinations
+  delete '/itineraries/:itinerary_id/destinations/:id/delete' => 'destinations#delete', as: :it_destinations_delete
 
 
 #                Prefix Verb   URI Pattern                      Controller#Action
